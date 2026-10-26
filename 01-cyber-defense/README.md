@@ -12,3 +12,5 @@
 5. Cyber Security Framework (NIST, mencionado por el instructor)
 
 > El material introductorio está resumido; las lecciones técnicas todavía están pendientes de recibir y desarrollar. Las ampliaciones personales se identifican por separado.
+
+- [Apuntes de Introduction to Cyber Defense](02-introduccion-a-cyber-defense.md): seguridad empresarial, threat landscape, defensa proactiva/reactiva, CIA y NIST.
