@@ -1,0 +1,23 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.kdbx
+__pycache__/
+.venv/
+node_modules/
+# Large/sensitive forensic materials: document metadata instead
+*.raw
+*.mem
+*.dmp
+*.pcap
+*.pcapng
+*.evtx
+*.vmdk
+*.vdi
+*.ova
+*.qcow2
