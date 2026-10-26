@@ -1,140 +1,131 @@
-# Clase 00 — Presentación y mapa de Blue Team Fundamentals (BTF)
+# BTF — Introducción al curso
 
-> **Tipo de nota:** resumen de la introducción del instructor y del documento `BTF Module 1.pdf`. No es todavía la clase técnica de *Introduction to Cyber Defense*.
+Estas son mis notas de la presentación de **Blue Team Fundamentals (BTF)**, de CyberWarFare Labs. Por ahora, el instructor está explicando qué se verá durante el curso y cómo se relacionan los temas. Todavía no hemos entrado a las clases técnicas.
 
-## 1. ¿Cuál es el objetivo de esta introducción?
+## ¿De qué trata BTF?
 
-El instructor presenta la **tabla de contenidos** y explica la progresión del curso. Su idea central: comenzar por la defensa y los equipos de ciberseguridad, pasar a operaciones SOC, estudiar inteligencia y búsqueda de amenazas, conocer respuesta a incidentes y forense digital y culminar investigando escenarios prácticos.
+El curso está orientado a aprender cómo se investigan incidentes de seguridad desde el lado defensivo (Blue Team). No se trata únicamente de ver alertas en una herramienta: la idea es revisar registros, reconocer actividades sospechosas y encontrar evidencia que permita entender qué ocurrió.
 
-El documento de CWL presenta BTF como entrenamiento para desarrollar habilidades de **investigación** de alertas, registros, anomalías de red y evidencias digitales.
+En la presentación se habla de seis módulos principales y de una parte práctica. El PDF, en cambio, organiza el contenido en siete secciones, contando los laboratorios como la última. Para mis apuntes voy a seguir el orden del PDF.
 
-**Diferencia importante:** esta lección todavía no enseña los procedimientos técnicos de esos temas: únicamente anuncia lo que viene.
+## Lo que veremos en el curso
 
-## 2. Ruta descrita en el video
+### 1. Cyber Defense
 
-| Bloque | Lo que el instructor anuncia | Resultado que debemos perseguir al estudiarlo |
-|---|---|---|
-| 1. Cyber Defense | Introducción e importancia de la defensa; Red/Blue/Purple Team; jerarquía y responsabilidades; NIST | Distinguir qué defiende cada rol y por qué |
-| 2. Cyber Operations | Funcionamiento de operaciones de seguridad; SOC dedicado frente a virtual; herramientas como firewalls, IDS/IPS, SIEM y SOAR; investigación inicial | Comprender el recorrido de una alerta desde que se genera |
-| 3–4. Threat Intelligence & Hunting | Panorama de amenazas, Pyramid of Pain, MITRE ATT&CK y Cyber Kill Chain | Pasar de un indicador aislado a hipótesis investigables |
-| 5–6. Incident Response & Forensics | Componentes y funcionamiento de IR, principios de forense y recolección de evidencia | Reconstruir un incidente sin perder trazabilidad |
-| 7. Lab Exercises | Montaje del laboratorio, investigaciones web y de red, memory forensics | Documentar un caso técnico reproducible |
+Primero se explicará qué es la ciberdefensa, por qué es importante y cómo trabajan los equipos Red, Blue y Purple Team. También se hablará de los roles y responsabilidades dentro de un equipo defensivo. Al final se menciona el framework NIST.
 
-**Nota sobre organización:** las diapositivas PDF enumeran **siete secciones** (I–VII), mientras que la presentación de la plataforma agrupa el material de otro modo. Conservamos los títulos y el orden del PDF y tratamos los anuncios del video como vista general, no como lecciones completadas.
+Lo que quiero entender aquí es **quién se encarga de qué** cuando una organización necesita prevenir, detectar o responder a un ataque.
 
-## 3. Analogía — De la teoría policial a una investigación SOC
+### 2. Cyber Operations
 
-Imagina una ciudad:
-- **Cyber Defense:** entender cómo proteger la ciudad y quién responde por cada sector.
-- **SOC:** central de vigilancia que recibe señales desde diversos edificios.
-- **Threat Intelligence:** información sobre actores, patrones de delito y señales conocidas.
-- **Threat Hunting:** investigadores que buscan indicios aunque aún no haya saltado ninguna alarma.
-- **Incident Response:** procedimiento coordinado cuando se confirma un incidente.
-- **Digital Forensics:** preservación y reconstrucción de los hechos a partir de evidencia.
-- **Laboratorio:** caso simulado donde se unen todas las piezas.
+Después entraremos al funcionamiento de un SOC (*Security Operations Center*), incluyendo la diferencia entre un SOC dedicado y uno virtual.
 
-**Límite de la analogía:** una alerta SIEM no equivale automáticamente a un ataque confirmado; debe investigarse y contrastarse con evidencias.
+El instructor menciona herramientas como firewalls, IDS/IPS, SIEM y SOAR. También se verán la gestión de incidentes y los primeros pasos para investigar una alerta.
 
-## 4. El viaje de una alerta — explicación adicional, NO transcripción
+Una duda para tener presente: **¿qué hace un analista cuando le llega una alerta y cómo decide si realmente es importante?**
+
+### 3. Threat Intelligence
+
+En esta parte veremos inteligencia de amenazas: de dónde sale la información sobre ataques, cómo se utiliza y qué diferencia existe entre IOC (*Indicators of Compromise*) e IOA (*Indicators of Attack*).
+
+También se menciona la *Pyramid of Pain*. La idea será entender por qué algunos indicadores son más útiles que otros para detectar o dificultar la actividad de un atacante.
+
+### 4. Threat Hunting
+
+Aquí el enfoque cambia un poco. En lugar de esperar una alerta, se busca actividad sospechosa de forma proactiva.
+
+El contenido anunciado incluye MITRE ATT&CK y Cyber Kill Chain. Me interesa entender cómo pasar de una sospecha a una búsqueda concreta en los logs.
+
+### 5. Incident Response
+
+Se estudiará cómo se organiza la respuesta a incidentes y cuáles son sus componentes y etapas.
+
+No basta con detectar actividad maliciosa: también hay que saber qué investigar, qué escalar, cómo contener el problema y qué dejar documentado.
+
+### 6. Digital Forensics
+
+El instructor anuncia análisis forense digital, recolección de evidencia e investigaciones posteriores a un compromiso.
+
+También habrá una práctica de **memory forensics**, es decir, análisis de información obtenida de la memoria de un equipo.
+
+### 7. Laboratorios
+
+Esta es la parte que más quiero aprovechar. Según la presentación se trabajará con un entorno empresarial simulado y con investigaciones de ataques web, tráfico de red y memoria.
+
+El instructor también menciona **cinco desafíos de investigación** basados en escenarios reales o inspirados en ellos. Eso no significa que ya estén resueltos: iremos documentándolos cuando lleguemos a cada uno.
+
+## Algo que me llamó la atención: los logs
+
+En las capturas, el instructor insiste bastante en que durante BTF se analizarán **security logs** para identificar anomalías y posibles actividades maliciosas.
+
+Esto es importante porque un log, por sí solo, puede ser bastante ambiguo. Por ejemplo:
+
+> Un servidor registra 120 respuestas HTTP 401 en tres minutos.
+
+Eso podría ser un intento de acceso automatizado, pero también una aplicación con credenciales equivocadas. Tendría que revisar de dónde vienen las solicitudes, qué rutas se consultaron y si hubo algún acceso exitoso después.
+
+La idea es no confundir **algo raro** con **un ataque confirmado**.
+
+## ¿Y el análisis de memoria para qué sirve?
+
+El instructor menciona que se investigarán incidentes posteriores al compromiso y que habrá un análisis de memoria.
+
+Un ejemplo sencillo para entenderlo: los logs permiten revisar lo que un equipo fue registrando; un volcado de memoria puede conservar información del estado del sistema en un momento determinado, como procesos y otros artefactos, dependiendo de cómo se adquirió.
+
+Son fuentes distintas de evidencia. Lo interesante será aprender a relacionarlas, no depender de una sola.
+
+## Cómo conecto todo esto
+
+Para entender el recorrido completo, me sirve pensar en un caso inventado:
+
+1. En una aplicación web aparece actividad sospechosa.
+2. Los logs del servidor guardan detalles de las solicitudes.
+3. El SIEM recibe esos eventos y puede generar una alerta.
+4. El analista SOC revisa qué pasó y si hay indicios reales de ataque.
+5. Si se confirma un incidente, se activa la respuesta correspondiente.
+6. Si hace falta profundizar, pueden revisarse otras evidencias, como tráfico de red o memoria.
+7. Finalmente, se documenta lo que se encontró y las medidas tomadas.
+
+**Ojo:** este ejemplo es mío para unir los temas; no es una práctica realizada ni una transcripción del profesor.
 
 ```mermaid
-flowchart TD
- A[Actividad en el sistema] --> B[Logs y telemetría]
- B --> C[Detección / alerta]
- C --> D[Analista realiza triage]
- D --> E{¿Indicios suficientes?}
- E -->|No| F[Descartar o seguir observando y documentar]
- E -->|Sí| G[Escalar / investigar]
- G --> H[Determinar alcance e impacto]
- H --> I[Responder y preservar evidencias]
- I --> J[Informe y lecciones aprendidas]
+flowchart LR
+ A[Actividad sospechosa] --> B[Logs]
+ B --> C[SIEM]
+ C --> D[Investigación SOC]
+ D --> E[Respuesta / análisis forense]
+ E --> F[Informe]
 ```
 
-Esta secuencia es una **ampliación didáctica** para comprender cómo se conectan los módulos, no un proceso específico enseñado en las capturas.
+## Qué necesito manejar antes de los laboratorios
 
-## 5. Lo que el PDF añade
+El PDF menciona como conocimientos previos:
 
-La presentación de CWL menciona que su entrenamiento se centra en:
-- Investigar amenazas y actividades sospechosas.
-- Monitorizar alertas, analizar logs y examinar anomalías en endpoints y redes.
-- Explorar forense digital y memoria.
-- Practicar en una infraestructura empresarial simulada, con guía para despliegue local.
+- Redes: IP, puertos, protocolos y conexiones.
+- Una idea básica de qué hace un SIEM.
+- Comandos básicos en terminal.
 
-En la diapositiva **Prerequisite (p. 10)** se mencionan conocimientos de networking, nociones de SIEM y familiaridad con línea de comandos. **Ojo:** la página de la plataforma compartida anteriormente señala que no se exige experiencia previa en Blue Team; ambas afirmaciones pueden entenderse como niveles distintos de preparación sugerida, sin asumir equivalencia exacta.
+Esto aparece en la página 10 de la presentación. No se exige en ese PDF dominar de antemano el trabajo de Blue Team, pero sí conviene tener estas bases.
 
-## 6. Glosario inicial (explicación complementaria)
+## Cosas para repasar
 
-| Sigla | Significado | Idea básica |
-|---|---|---|
-| SOC | Security Operations Center | Función/equipo que monitoriza e investiga eventos |
-| SIEM | Security Information and Event Management | Centraliza y permite correlacionar registros de seguridad |
-| IDS | Intrusion Detection System | Busca señales de intrusión y alerta |
-| IPS | Intrusion Prevention System | Puede actuar para bloquear actividad conforme a sus reglas |
-| SOAR | Security Orchestration, Automation and Response | Orquesta acciones e integra flujos de respuesta |
-| CTI | Cyber Threat Intelligence | Información analizada útil para decisiones defensivas |
-| IOC | Indicator of Compromise | Evidencia observable asociada a compromiso potencial |
-| IOA | Indicator of Attack | Señal de comportamiento compatible con una técnica de ataque |
-| IR | Incident Response | Respuesta organizada ante incidentes |
+- ¿Cuál es la diferencia entre un evento, una alerta y un incidente?
+- ¿En qué se diferencia un SOC de un SIEM?
+- ¿Cuándo conviene investigar una alerta antes de escalarla?
+- ¿Qué diferencia hay entre investigar logs y revisar memoria?
+- ¿Qué información necesitaría para afirmar que una actividad fue maliciosa?
 
-El instructor menciona herramientas/categorías; las definiciones anteriores son aportaciones adicionales de estudio.
+## Mi progreso
 
-## 7. Preguntas de comprobación
+- [x] Revisé el temario y la introducción del instructor.
+- [ ] Introduction to Cyber Defense.
+- [ ] Importance of Cyber Defense.
+- [ ] Red, Blue y Purple Team.
+- [ ] Roles y responsabilidades.
+- [ ] NIST.
 
-1. ¿Por qué una organización necesita **roles y responsabilidades**, además de herramientas?
-2. ¿Qué diferencia hay entre una **alerta** y un **incidente confirmado**?
-3. ¿Cómo se relacionan CTI y Threat Hunting?
-4. ¿Por qué la recolección de evidencia debe ir acompañada de documentación?
-5. ¿Qué aporta un laboratorio controlado que no se aprende memorizando nombres de herramientas?
+---
 
-## 8. Microejercicio (sin máquinas ni ataques)
+**Material de referencia:** video introductorio compartido en capturas y presentación *BTF Module 1.pdf* de CyberWarFare Labs (especialmente páginas 3–10).
 
-**Escenario ficticio:** un servidor web registra 120 respuestas HTTP 401 en tres minutos. Un monitor genera una alerta.
-
-- **Hecho observado:** 120 respuestas 401 en un intervalo.
-- **Hipótesis 1:** intentos automatizados de autenticación.
-- **Hipótesis 2:** aplicación legítima con credenciales vencidas o un cliente mal configurado.
-- **Qué pedir antes de concluir:** origen(es), rutas solicitadas, user agents, cuentas afectadas, actividad posterior y registros de autenticación.
-- **Conclusión correcta por ahora:** actividad anómala a investigar, **no** compromiso probado.
-
-## 9. Bitácora de avance
-
-- [x] Material introductorio recibido y resumido.
-- [ ] Lección técnica: Introduction to Cyber Defense.
-- [ ] Lección técnica: Importance of Cyber Defense.
-- [ ] Roles, NIST y Red/Blue/Purple con ejemplos.
-- [ ] Laboratorios y evidencias propias.
-
-## Fuentes usadas
-
-- **CWL:** `BTF Module 1.pdf`, pp. 3–10, aportado para estudio.
-- **Transcripción visual compartida:** capturas del video introductorio sobre los módulos 1 a 7.
-- **Aporte propio del repositorio:** analogía, diagrama, glosario y microejercicio.
-
-> No se han reproducido íntegramente las diapositivas, el PDF o material de entrenamiento de terceros.
-
-## 10. Lab Highlights — continuación de la introducción (capturas adicionales)
-
-### Qué afirma el instructor
-
-- CWL diseñó BTF para fortalecer las **habilidades de investigación en tiempo real**.
-- Menciona **seis módulos formativos** que proporcionan una base teórica y práctica de ciberdefensa.
-- Anuncia **cinco desafíos de investigación** inspirados en situaciones reales (según la transcripción automática, que tiene errores de reconocimiento).
-- A lo largo del curso se analizarán **logs de seguridad** para identificar anomalías sospechosas y actividades potencialmente maliciosas en entornos empresariales simulados.
-- Se incluye una sección dedicada a **digital forensics**, con análisis de incidentes posteriores a un compromiso y un ejercicio de **memory forensics**.
-
-### Analogía complementaria: un detective digital
-
-Los registros son las huellas y los testimonios digitales; las alertas son avisos de que algo podría haber ocurrido; la investigación permite reconstruir la secuencia y contrastar hipótesis. El análisis de memoria equivale a examinar una fotografía del estado de un equipo en un instante: puede revelar procesos y conexiones que no figuran de la misma manera en los logs del disco.
-
-### Ejemplo de investigación (escenario inventado, no resultado del curso)
-
-Un servidor registra numerosos intentos de acceso y después una ejecución inesperada. Un analista debería relacionar timestamps, cuentas, direcciones de origen y procesos; verificar posibles explicaciones legítimas; y, si existe un volcado de memoria adquirido correctamente, examinar los procesos activos en ese momento. Esto **no demuestra por sí solo** que haya un compromiso: la conclusión depende de la evidencia corroborada.
-
-### Qué implican estos anuncios para el portafolio
-
-1. Documentar cada investigación como **hipótesis → fuentes → hallazgos → corroboración → conclusión**.
-2. Añadir cronologías, filtros y consultas reproducibles cuando existan datos reales.
-3. Separar de forma visible actividades anunciadas, realizadas y verificadas.
-4. Preparar un caso de análisis de memoria con hashes, preservación y reporte cuando lleguemos al laboratorio.
-
-**Fuente:** capturas adicionales de la introducción («Lab highlights» y explicación sobre análisis de logs e incidentes post-compromiso). El esquema de las diapositivas recibidas del PDF también menciona prácticas de alertas, registros, redes y memoria (pp. 6–9).
+**Nota:** las explicaciones y el caso HTTP 401 se añadieron para estudiar mejor. Los temas anunciados por el instructor no deben confundirse con prácticas ya realizadas.
