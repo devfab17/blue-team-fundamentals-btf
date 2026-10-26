@@ -111,3 +111,30 @@ El instructor menciona herramientas/categorías; las definiciones anteriores son
 - **Aporte propio del repositorio:** analogía, diagrama, glosario y microejercicio.
 
 > No se han reproducido íntegramente las diapositivas, el PDF o material de entrenamiento de terceros.
+
+## 10. Lab Highlights — continuación de la introducción (capturas adicionales)
+
+### Qué afirma el instructor
+
+- CWL diseñó BTF para fortalecer las **habilidades de investigación en tiempo real**.
+- Menciona **seis módulos formativos** que proporcionan una base teórica y práctica de ciberdefensa.
+- Anuncia **cinco desafíos de investigación** inspirados en situaciones reales (según la transcripción automática, que tiene errores de reconocimiento).
+- A lo largo del curso se analizarán **logs de seguridad** para identificar anomalías sospechosas y actividades potencialmente maliciosas en entornos empresariales simulados.
+- Se incluye una sección dedicada a **digital forensics**, con análisis de incidentes posteriores a un compromiso y un ejercicio de **memory forensics**.
+
+### Analogía complementaria: un detective digital
+
+Los registros son las huellas y los testimonios digitales; las alertas son avisos de que algo podría haber ocurrido; la investigación permite reconstruir la secuencia y contrastar hipótesis. El análisis de memoria equivale a examinar una fotografía del estado de un equipo en un instante: puede revelar procesos y conexiones que no figuran de la misma manera en los logs del disco.
+
+### Ejemplo de investigación (escenario inventado, no resultado del curso)
+
+Un servidor registra numerosos intentos de acceso y después una ejecución inesperada. Un analista debería relacionar timestamps, cuentas, direcciones de origen y procesos; verificar posibles explicaciones legítimas; y, si existe un volcado de memoria adquirido correctamente, examinar los procesos activos en ese momento. Esto **no demuestra por sí solo** que haya un compromiso: la conclusión depende de la evidencia corroborada.
+
+### Qué implican estos anuncios para el portafolio
+
+1. Documentar cada investigación como **hipótesis → fuentes → hallazgos → corroboración → conclusión**.
+2. Añadir cronologías, filtros y consultas reproducibles cuando existan datos reales.
+3. Separar de forma visible actividades anunciadas, realizadas y verificadas.
+4. Preparar un caso de análisis de memoria con hashes, preservación y reporte cuando lleguemos al laboratorio.
+
+**Fuente:** capturas adicionales de la introducción («Lab highlights» y explicación sobre análisis de logs e incidentes post-compromiso). El esquema de las diapositivas recibidas del PDF también menciona prácticas de alertas, registros, redes y memoria (pp. 6–9).
