@@ -40,9 +40,9 @@ Si el proxy registra URL, fecha, IP de origen, acción y estado, esos datos pued
 La VPN crea un túnel protegido sobre una red no confiable. El ejemplo del video es un empleado trabajando desde casa que necesita acceder a recursos de la empresa.
 
 ```mermaid
-flowchart LR
- L["Laptop en casa"] <-->|"Túnel cifrado por Internet"| V["Servidor VPN corporativo"]
- V <-->|"Red interna según políticas"| D["Servidor / BD"]
+flowchart TB
+ L["Laptop en casa"] <-->|"Túnel cifrado"| V["VPN corporativa"]
+ V <-->|"Acceso permitido"| D["Servidor interno"]
 ```
 
 Primero se autentica el usuario; después se establece el túnel y se encaminan las comunicaciones permitidas. La VPN no abre automáticamente todos los servidores internos: las rutas y los permisos siguen contando.
