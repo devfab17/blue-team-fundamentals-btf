@@ -15,23 +15,17 @@ Analogía: en una cocina, el encargado coordina las estaciones y algunas tareas 
 ## El ejemplo del video: correo reportado
 
 ```mermaid
-flowchart TD
- E["Correo reportado"] --> S["Examinar remitente"]
- E --> H["Analizar cabeceras"]
- E --> C["Examinar contenido"]
- E --> U["Extraer enlaces y adjuntos"]
- S --> M["Consulta de inteligencia: MISP"]
- H --> T["Análisis de cabeceras"]
- C --> Y["Reglas YARA si corresponde"]
- U --> V["VirusTotal / análisis autorizado"]
- M --> D{"Evaluación conjunta"}
- T --> D
- Y --> D
- V --> D
- D -->|Suficiente evidencia de legitimidad| L["Cerrar y documentar"]
- D -->|Indicios maliciosos| I["Crear incidente para analista"]
- D -->|Inconcluso| R["Revisión manual"]
+flowchart TB
+ E["Correo reportado"] --> X["Extraer remitente,<br/>cabeceras, URLs y archivos"]
+ X --> V["Consultar MISP,<br/>YARA y VirusTotal"]
+ V --> D{"¿Hay indicios<br/>maliciosos?"}
+ D -->|Sí| I["Crear incidente"]
+ D -->|No| L{"¿Hay evidencia<br/>suficiente?"}
+ L -->|Sí| C["Cerrar y documentar"]
+ L -->|No| R["Revisión manual"]
 ```
+
+El flujo de arriba **resume** las consultas en un solo bloque para que el gráfico se lea completo. En la práctica, cada comprobación puede ejecutarse por separado o en paralelo.
 
 El diagrama original simplifica los resultados como **Clean** o **Malicious**. En la práctica conviene contemplar **Inconclusive**: un indicador sin detecciones en VirusTotal no se vuelve automáticamente confiable.
 
