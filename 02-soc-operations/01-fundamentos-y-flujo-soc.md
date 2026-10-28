@@ -36,11 +36,12 @@ flowchart TD
  D --> E["Ticket o caso"]
  E --> F["Triage e investigación"]
  F --> G{"¿Qué demuestra la evidencia?"}
- G -->|Amenaza confirmada| H["Contención, escalamiento y análisis"]
- G -->|Actividad legítima| I["Cierre y ajuste de reglas si corresponde"]
- G -->|No concluyente| J["Más evidencia y seguimiento"]
- H --> K["Informe y lecciones aprendidas"]
- I --> K
+ G -->|Sí| H["Contener y escalar"]
+ G -->|No| I{"¿Actividad<br/>legítima?"}
+ I -->|Sí| L["Cerrar y revisar regla"]
+ I -->|No está claro| J["Buscar más evidencia"]
+ H --> K["Informe"]
+ L --> K
  J --> F
 ```
 
